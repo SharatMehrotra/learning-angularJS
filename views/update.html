@@ -1,0 +1,21 @@
+<div class="content" style="text-align:center"> 
+<h1>Update existing ninja</h1>
+<form ng-submit="updateNinja()">
+    <input type="text" placeholder="Old Name" ng-model="oldName"/>
+    <input type="text" placeholder="New Name" ng-model="newName"/>
+    <input type="submit" value="Change the name"/>  
+</form>
+<ul>
+    <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+      <h3>
+        {{ninja.name}} - {{ninja.rate | currency}}
+      </h3>
+      <div class="remove" ng-click="removeNinja(ninja)">
+        X
+      </div>
+      <span class="belt" style="background:{{ninja.belt}}">
+        {{ninja.belt}} belt
+      </span>
+    </li>
+  </ul>
+</div>
